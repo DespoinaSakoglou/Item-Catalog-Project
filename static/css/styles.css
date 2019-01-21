@@ -1,0 +1,50 @@
+body {
+	position: relative;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 10px;
+	color: #333;
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	text-decoration: none;
+	color: gray;
+}
+
+.row {
+	/*background-color: #f2efed;*/
+}
+
+.nav-bar {
+	background-color: #bce1e2;
+}
+
+.top-menu {
+	background-color: #bce1e2;
+}
+
+.main-content {
+	/*border-top: 1px solid #666;*/
+	background-color: #f2efed;
+}
+
+.categories-sidebar {
+	/*border-right: 1px solid #666;*/
+}
+
+.content-space {
+	padding-left: 80px;
+}
+
+div.vertical-line {
+	width: 1px;
+	background-color: silver;
+	height: 100%;
+	float: right;
+}

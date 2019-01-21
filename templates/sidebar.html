@@ -1,0 +1,14 @@
+<!-- Categories Sidebar -->
+
+<div class="col-sm-3 categories-sidebar">
+	<h2>Hiking Essentials</h2>
+	<div>
+		{% for c in categories %}
+			<a href="{{url_for('showCategory', category_name = c.name)}}"><p><strong>{{c.name}}</strong></p></a>
+		{% endfor %}
+	</div>
+</div>
+<div class="col-sm-9 content-space">
+	{% block body %}
+	{% endblock %}		
+</div>

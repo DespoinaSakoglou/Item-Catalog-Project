@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+	<div class="row main-content">
+
+		<h4> Edit Item </h4>
+
+		<form action="{{url_for('editItem', category_name=item.category.name, item_name=item.name)}}" method = 'POST'>
+			<p>Name:</p>
+			<input type='text' size='30' name='name' placeholder="{{item.name}}">
+			<br>
+			<p>Description:</p>
+			<input type='text' size='50' name='description' placeholder="{{item.description}}">
+			<br>
+			<p>Category:</p>
+			<select name='category'>
+				{% for c in categories %}
+					<option value="{{c.name}}" {% if c == item.category %} selected="selected" {% endif %}>{{ c.name }}</option>
+				{% endfor %}
+			</select>
+			<br>
+			<br>
+
+			<button type='submit'>Edit</button>
+			<button type="button"><a href = "{{ url_for('showItem', category_name = item.category.name, item_name = item.name)}}"> Cancel </a></button>
+		</form>	
+
+	</div>
+
+{% endblock %}
