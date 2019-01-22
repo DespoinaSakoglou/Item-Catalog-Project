@@ -303,7 +303,7 @@ def deleteItem(category_name, item_name):
 
 ## JSON
 ##========
-# making an API Endpoint 
+# making API Endpoints
 @app.route('/catalog/JSON')
 def showCategoriesJSON():
 	# return "This page will show all my categories"
@@ -315,6 +315,12 @@ def showCategoriesJSON():
 			category_list[c]["Item"] = items
 	return jsonify(Category=category_list)
 
+@app.route('/catalog/<path:category_name>/items/JSON')
+def itemsJSON(category_name):
+	# return "This page will show all items in a category"
+	category = session.query(Category).filter_by(name=category_name).one()
+	items = session.query(Item).filter_by(category=category).all()
+	return jsonify(items=[i.serialize for i in items])
 
 # main app run by python interpreter gets a name var set to __main__
 # if statement ensures server only runs if script is executed directly from python interpreter
