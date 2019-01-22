@@ -48,3 +48,15 @@ div.vertical-line {
 	height: 100%;
 	float: right;
 }
+
+input:invalid {
+  box-shadow: 0 0 5px 1px grey;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+select:invalid {
+  box-shadow: 0 0 5px 1px grey;
+}
