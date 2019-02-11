@@ -117,7 +117,7 @@ def gconnect():
     if result['issued_to'] != CLIENT_ID:
         response = make_response(
             json.dumps("Token's client ID does not match app's."), 401)
-        print "Token's client ID does not match app's."
+        print("Token's client ID does not match app's.")
         response.headers['Content-Type'] = 'application/json'
         return response
 
@@ -163,7 +163,7 @@ def gconnect():
 		'-webkit-border-radius: 150px;' \
 		'-moz-border-radius: 150px;"> '
     flash("you are now logged in as %s" % login_session['username'])
-    print "done!"
+    print("done!")
     return output
 
 # User Helper Functions
@@ -211,7 +211,7 @@ def gdisconnect():
         # response.headers['Content-Type'] = 'application/json'
         response = redirect(url_for('showCategories'))
         flash("Successfully disconnected.")
-      	return response
+	return response
     else:
     	# for whatever reason, the given token was invalid
         response = make_response(
@@ -259,17 +259,17 @@ def showItem(category_name, item_name):
     item = session.query(Item).filter_by(name=item_name).one()
     creator = getUserInfo(item.user_id)
     if 'username' not in login_session or creator.id != login_session['user_id']:
-	return render_template('publicitem.html',
-				item = item,
-				categories = categories,
-				category = category_name,
-				creator = creator)
+        return render_template('publicitem.html',
+                                item = item,
+                                categories = categories,
+                                category = category_name,
+                                creator = creator)
     else:
         return render_template('item.html',
-				item = item,
-				categories = categories,
-				category = category_name,
-			        creator = creator)
+                                item = item,
+                                categories = categories,
+                                category = category_name,
+                                creator = creator)
 
 # add a new item
 @app.route('/catalog/addnew/', methods=['GET', 'POST'])
